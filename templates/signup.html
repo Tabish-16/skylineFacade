@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+
+    <title>Document</title>
+</head>
+<body class='bg-blue-900 flex justify-center items-center h-screen'>
+    <main style="" class="flex justify-center items-center px-4" >
+
+        <div class=" my-8 py-4  bg-gray-100 rounded-xl shadow-lg" style="">
+          <h1 class="mb-4 text-4xl font-extrabold text-center leading-none tracking-tight text-grey:900">
+            <!-- <?php echo setting('company_name') ?> -->
+          </h1>
+          <center>
+      
+            <!-- <?php if (isset($message)): ?> -->
+              <div role="alert"
+                class="bg-<?php echo $message_type ?>/25 text-sm text-<?php echo $message_type ?> rounded-md p-4 w-80">
+                <!-- <p><?php echo $message ?></p> -->
+              </div>
+            <!-- <?php endif; ?> -->
+      
+            <!-- <?php if (!empty($this->session->flashdata('message'))): ?> -->
+              <div role="alert"
+                class="bg-<?php echo $this->session->flashdata('message_type'); ?>/25  text-sm text-<?php echo $this->session->flashdata('message_type'); ?> rounded-md p-4">
+                <!-- <p><?php echo $this->session->flashdata('message') ?></p> -->
+              </div>
+            <!-- <?php endif; ?> -->
+          </center>
+          <div class="px-6">
+      
+            <h4 class="card-title mb-4 ">Login</h4>
+      
+      
+      
+            <!-- <?php echo form_open('/login/check', ['method' => 'POST', 'autocomplete' => 'off']); ?> -->
+            <div class="mb-3 flex flex-col">
+              <label for="exampleInputEmail1" class="text-default-800 text-sm font-medium inline-block mb-2">Email
+                Username</label>
+              <input type="text" class="form-input border border-black p-2 rounded-lg" id="exampleInputEmail1" aria-describedby="emailHelp" name="username"
+                placeholder="Enter email or username" required>
+              <!-- <?php echo form_error('username', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
+            </div>
+            <div class="mb-3 flex flex-col">
+              <label for="exampleInputPassword1"
+                class="text-default-800 text-sm font-medium inline-block mb-2">Password</label>
+              <input type="password" name="password" class="form-input border border-black p-2 rounded-lg" id="exampleInputPassword1" placeholder="Password">
+              <!-- <?php echo form_error('password', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
+            </div>
+            <div class="flex items-center gap-2 mb-3">
+              <input type="checkbox" name="remember_me" id="checkmeout0" <?php echo post('remember_me')?'checked':'' ?> 
+              <!-- class="form-checkbox rounded border border-default-200" id="checkmeout0"> -->
+              <label  class="text-default-800 text-sm font-medium inline-block" for="checkmeout0">Remember me</label>
+            </div>
+      
+            <!-- <?php if (setting('google_recaptcha_enabled') == '1'): ?> -->
+      
+              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      
+              <div class="form-group mb-4">
+                <div class="g-recaptcha" data-sitekey="<?php echo setting('google_recaptcha_sitekey') ?>"></div>
+                <!-- <?php echo form_error('g-recaptcha-response', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
+              </div>
+      
+            <!-- <?php endif ?> -->
+            <center>
+      
+              <button type="submit" class="btn bg-primary text-white bg-blue-600 py-3 rounded-lg hover:bg-blue-500 " style="width:10rem">Login</button>
+            </center>
+            <!-- <?php echo form_close(); ?> -->
+            <p class="mb-1">
+              <a
+                href="<?php echo url('login/forget?username=' . post('username')) ?>"><?php echo lang('forget_password_?') ?></a><br>
+            </p>
+          </div>
+        </div>
+      </main>
+</body>
+</html>
